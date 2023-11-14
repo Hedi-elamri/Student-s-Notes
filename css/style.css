@@ -50,7 +50,7 @@ form .corps-formulaire .gauche .groupe i{
     padding: 9px 8px;
     color: #747cdf;
 }
-form .corps-formulaire .droit{
+form .corps-formulaire {
     margin-left: 40px;
   
 }
@@ -97,4 +97,8 @@ form .pied-formulaire button:hover{
 }
 .marksucced{
     color: green;
+}
+#txt1{
+    color: red;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
