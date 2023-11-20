@@ -1,5 +1,5 @@
 //récupére les valeurs des champs du formulaire
-const fullName =document.querySelector('.fullName');
+const fullName = document.querySelector('.fullName');
 const dateOfBirth = document.querySelector('.dateOfBirth');
 const gender = document.querySelector('select[name=gender]');
 const task1 = document.querySelector('task1');
@@ -32,8 +32,35 @@ function validateDate(date) {
         return "Date is required"
     }
     //check the format of the date.
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
-        return "Date must be in the format YYYY-MM-DD.";
-    }
-    
+ 
+    //if the date passes all of the validation rules, return null.
+    return null;
 }
+//afficher le valeur de champs
+submit.addEventListener("click", (event) => {
+    if (validateFullName(fullName.value) !== null) {
+        alert(validateFullName(fullName.value))
+        return;
+    }
+    if (validateDate(dateOfBirth.value) !== null) {
+        alert(validateDate(dateOfBirth.value))
+        return;
+       
+    }
+    const total = ((parseInt(task1.value) + parseInt(task2.value) + parseInt(task3.value)) / 3 )
+    //afficher le ru=esultat dans le champ resultat
+    result.innerHTML =
+    `<h1>full Name:</h1> ${fullName.value }
+    <h1>date of Birth:</h1> ${dateOfBirth.value }
+    ${total}
+    <h1>mark :</h1>
+    $ {total >= 10 ? "succeed : "fail"}
+    `; 
+
+});
+reset.addEventListener('click',()  =>{
+    result.innerHTML = ''
+    fullName.value = ''
+    dateOfBirth.value = ''
+
+})
